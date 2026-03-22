@@ -5,6 +5,7 @@ export const projects = [
     subtitle: "Featured Project",
     description:
       "National-level hackathon project focused on predictive analytics and machine learning forecasting pipelines for identity verification data.",
+    shortDesc: "Predictive analytics pipelines for national identity verification.",
     tags: ["Jupyter", "ML Forecasting", "Python", "Data Analysis"],
     github: "https://github.com/Devam510",
     featured: true,
@@ -17,6 +18,7 @@ export const projects = [
     subtitle: "Autonomous AI",
     description:
       "A voice-controlled autonomous AI assistant built in Python capable of performing tasks, searching the web, and managing system commands hands-free.",
+    shortDesc: "Voice-controlled AI assistant for hands-free system automation.",
     tags: ["Python", "Voice AI", "Autonomous", "NLP"],
     github: "https://github.com/Devam510",
     featured: false,
@@ -29,6 +31,7 @@ export const projects = [
     subtitle: "Computer Vision",
     description:
       "Real-time facial recognition attendance system using ArcFace model with a React frontend, FastAPI backend, and WebSocket live updates.",
+    shortDesc: "Real-time facial recognition attendance using ArcFace and React.",
     tags: ["React", "FastAPI", "ArcFace", "WebSockets"],
     github: "https://github.com/Devam510",
     featured: false,
@@ -41,6 +44,7 @@ export const projects = [
     subtitle: "NLP & Voice",
     description:
       "A multilingual marketplace platform with NLP-powered search and voice AI for Indian vernacular languages, bridging digital divide for rural vendors.",
+    shortDesc: "Multilingual voice-search marketplace for rural Indian vendors.",
     tags: ["JavaScript", "NLP", "Voice AI", "Multilingual"],
     github: "https://github.com/Devam510",
     featured: false,
@@ -53,6 +57,7 @@ export const projects = [
     subtitle: "Computer Vision",
     description:
       "A deep learning-based deepfake detection system using convolutional neural networks and signal analysis to identify manipulated media.",
+    shortDesc: "CNN-based deepfake detection system identifying manipulated media.",
     tags: ["Python", "Computer Vision", "Signal Analysis", "CNN"],
     github: "https://github.com/Devam510",
     featured: false,
@@ -65,6 +70,7 @@ export const projects = [
     subtitle: "Backend System",
     description:
       "A robust RESTful API for e-commerce applications with JWT authentication, product management, cart, and order processing built with Node.js.",
+    shortDesc: "Robust Node.js REST API with JWT authentication.",
     tags: ["Node.js", "Express", "JWT", "REST API"],
     github: "https://github.com/Devam510",
     featured: false,
@@ -76,6 +82,7 @@ export const projects = [
     subtitle: "Autonomous Voice",
     description:
       "Free AI-powered outbound calling agent built with Groq (Whisper + LLaMA 3), Twilio, and Edge-TTS. Automatically handles client calls with zero subscription cost.",
+    shortDesc: "Free autonomous outbound calling agent using LLaMA 3.",
     tags: ["LLaMA 3", "Whisper", "Twilio", "Voice AI"],
     github: "https://github.com/Devam510/Calling-Agent",
     featured: false,
@@ -88,6 +95,7 @@ export const projects = [
     subtitle: "Enterprise App",
     description:
       "A custom-built Next.js enterprise application handling employee authentication, live attendance logs, and administrative security monitoring dashboards.",
+    shortDesc: "Next.js enterprise portal for live attendance and security.",
     tags: ["Next.js", "React", "Enterprise", "Dashboards"],
     github: "https://github.com/Devam510/IT-Attendence",
     featured: false,

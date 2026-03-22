@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Github, ExternalLink } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export interface ExpandCardItem {
   id: string | number;
@@ -7,6 +8,7 @@ export interface ExpandCardItem {
   image: string;
   github?: string;
   tags?: string[];
+  shortDesc?: string;
 }
 
 const ExpandOnHover = ({ items = [] }: { items?: ExpandCardItem[] }) => {
@@ -62,6 +64,22 @@ const ExpandOnHover = ({ items = [] }: { items?: ExpandCardItem[] }) => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Dynamic Animated Tagline */}
+      <div className="mt-10 md:mt-12 flex justify-center items-center relative overflow-hidden w-full h-8 px-4">
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={expandedIndex}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="text-center font-mono text-xs md:text-sm text-[#71717a] absolute max-w-2xl mx-auto tracking-widest uppercase"
+          >
+            {items[expandedIndex]?.shortDesc || "Selected project highlight showcasing modern development"}
+          </motion.p>
+        </AnimatePresence>
       </div>
     </div>
   );
