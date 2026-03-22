@@ -26,10 +26,17 @@ export default function Footer() {
     return () => clearInterval(interval);
   }, []);
 
+  // Auto-rotate phrases every 2.5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPhraseIndex((prev) => (prev + 1) % PHRASES.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
   // Handle footer hover to toggle text
   const handleMouseEnter = () => {
     setIsHovered(true);
-    setPhraseIndex((prev) => (prev + 1) % PHRASES.length);
   };
 
   const handleMouseLeave = () => {

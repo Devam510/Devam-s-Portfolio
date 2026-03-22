@@ -72,7 +72,7 @@ export default function Contact() {
               { num: '10+', label: 'Projects' },
               { num: '3+', label: 'Yrs Coding' },
               { num: '3+', label: 'AI Domains' },
-              { num: '1×', label: 'Internship' },
+              { num: '1x', label: 'Internship' },
             ].map((stat, i) => (
               <React.Fragment key={i}>
                 {i > 0 && <div style={{ width: '1px', height: '24px', background: '#e4e4e7' }} className="hidden sm:block" />}
@@ -216,7 +216,7 @@ export default function Contact() {
             <span style={{
               fontFamily: 'monospace',
               fontSize: '9px',
-              color: '#5a5a5eff',
+              color: '#353537ff',
               letterSpacing: '0.06em',
             }}>
               Responds within 12 hours
