@@ -103,7 +103,9 @@ const Availability = () => {
       ref={sectionRef}
       onMouseMove={handleSectionMouseMove}
       style={{
-        minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '80px 96px', background: '#fafafa', width: '100%', boxSizing: 'border-box',
+        minHeight: '100vh', display: 'flex', alignItems: 'center',
+        padding: 'clamp(60px, 8vw, 80px) clamp(24px, 6vw, 96px)',
+        background: '#fafafa', width: '100%', boxSizing: 'border-box',
         position: 'relative', overflow: 'hidden'
       }}
     >
@@ -116,7 +118,7 @@ const Availability = () => {
       {/* Effect 10 — Cursor Glow Trail */}
       <motion.div style={{ position: 'absolute', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(239,68,68,0.06) 0%, transparent 70%)', pointerEvents: 'none', zIndex: 0, left: cursor.x - 200, top: cursor.y - 200, transition: 'left 0.15s ease, top 0.15s ease' }} />
 
-      <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '128px', alignItems: 'center' }}>
+      <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: 'clamp(48px, 6vw, 128px)', alignItems: 'center' }}>
 
         {/* Left Column (Effect 09) */}
         <motion.div
@@ -137,7 +139,7 @@ const Availability = () => {
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             style={{ transformStyle: 'preserve-3d', perspective: 1000 }}
           >
-            <h2 style={{ fontSize: '64px', fontWeight: 700, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: '24px', color: '#18181b', display: 'flex', flexDirection: 'column' }}>
+            <h2 style={{ fontSize: 'clamp(32px, 6vw, 64px)', fontWeight: 700, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: '24px', color: '#18181b', display: 'flex', flexDirection: 'column' }}>
               {/* Effect 01 — Text Split Reveal */}
               <div style={{ overflow: 'hidden' }}>
                 <motion.span 

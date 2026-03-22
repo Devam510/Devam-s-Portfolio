@@ -64,6 +64,39 @@ section {
   padding: 120px 0;
 }
 
+/* ── Responsive overrides ── */
+@media (max-width: 767px) {
+  /* Restore system cursor on touch devices */
+  body {
+    cursor: auto;
+  }
+  .btn {
+    cursor: pointer;
+  }
+  /* Prevent iOS zoom on input focus */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+  /* Tighter container on mobile */
+  .container {
+    padding: 0 16px;
+  }
+  /* Section spacing on mobile */
+  section {
+    padding: 60px 0;
+  }
+  /* Skills column fix */
+  .mobile-gap {
+    height: 24px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  section {
+    padding: 80px 0;
+  }
+}
+
 /* Typography helpers */
 .section-label {
   font-family: var(--font-mono);

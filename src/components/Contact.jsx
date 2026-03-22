@@ -19,8 +19,8 @@ export default function Contact() {
   });
 
   return (
-    <section id="contact" className="w-full flex flex-col bg-white px-6 py-12 md:px-24 md:pt-24 md:pb-12" style={{ minHeight: '100vh', background: '#fff',paddingLeft: 'max(20px, 7vw)' }}>
-      <div className="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-14 items-center flex-1 w-full max-w-7xl mx-auto">
+    <section id="contact" className="w-full flex flex-col bg-white" style={{ minHeight: '100vh', background: '#fff', padding: 'clamp(60px, 8vw, 96px) clamp(20px, 7vw, 96px)' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: 'clamp(40px, 6vw, 56px)', alignItems: 'center', width: '100%', maxWidth: '1400px', margin: '0 auto' }}>
 
         {/* LEFT COLUMN */}
         <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -44,13 +44,13 @@ export default function Contact() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             style={{ marginBottom: '16px' }}
           >
-            <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 0.95, color: '#18181b' }}>
+            <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 'clamp(28px, 4.5vw, 56px)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 0.95, color: '#18181b' }}>
               Turn your data
             </div>
-            <div style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic', fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 0.95, color: '#18181b' }}>
+            <div style={{ fontFamily: "'Instrument Serif', serif", fontStyle: 'italic', fontSize: 'clamp(28px, 4.5vw, 56px)', fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 0.95, color: '#18181b' }}>
               into decisions.
             </div>
-            <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 0.95, color: '#18181b' }}>
+            <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 'clamp(28px, 4.5vw, 56px)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 0.95, color: '#18181b' }}>
               Let's talk.
             </div>
           </motion.div>
@@ -122,8 +122,8 @@ export default function Contact() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}
         >
-          {/* Name + Email row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-[10px]">
+          {/* Name + Email row — stack on mobile via auto-fit */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px' }}>
             <input
               type="text"
               placeholder="Your name"

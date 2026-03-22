@@ -174,7 +174,7 @@ export const MinimalistHero = ({
           top: '15px',
           right: '40px',
           zIndex: 10,
-          maxWidth: '300px',
+          maxWidth: '350px',
           flexDirection: 'column',
           alignItems: 'flex-end',
           gap: '0px',
@@ -197,7 +197,7 @@ export const MinimalistHero = ({
           letterSpacing: '0.01em',
           margin: 0,
         }}>
-          Sometimes gotta run before,<br/>you can walk.
+          Sometimes you gotta run before,<br/>you can walk.
         </p>
         <span style={{
           fontFamily: 'monospace',

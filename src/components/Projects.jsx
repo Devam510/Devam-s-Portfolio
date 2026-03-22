@@ -15,35 +15,44 @@ export default function Projects() {
               <span style={{ display: 'inline-block', width: '40px', height: '2px', backgroundColor: '#18181b' }}></span>
               Selected Work
             </p>
-            <h2 className="section-title" style={{ marginTop: '24px', fontSize: 'clamp(80px, 10vw, 140px)', lineHeight: '0.85', color: '#18181b', margin: 0 }}>
+            <h2
+              className="section-title"
+              style={{
+                marginTop: '24px',
+                fontSize: 'clamp(48px, 8vw, 140px)',
+                lineHeight: '0.85',
+                color: '#18181b',
+                margin: 0,
+              }}
+            >
               <span style={{ fontWeight: 300, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
                 THINGS I<br/>HAVE BUILT
               </span>
             </h2>
           </div>
-          {/* --- GITHUB LINK POSITION CONTROLS --- */}
-          {/* Change these exact pixel values to physically drag the text in any direction! */}
-          <div 
+
+          {/* GitHub link */}
+          <div
             className="font-mono text-xs md:text-sm text-[#a1a1aa] mb-2"
-            style={{ 
+            style={{
               position: 'relative',
-              top: '40px',    /* Vertical: change to -20px to move UP, or 50px to move DOWN */
-              right: '40px',  /* Horizontal: change to 50px to move LEFT, or -20px to move RIGHT */
+              top: '40px',
+              right: '40px',
               zIndex: 10
             }}
           >
-            <a 
-              href="https://github.com/Devam510" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://github.com/Devam510"
+              target="_blank"
+              rel="noopener noreferrer"
               className="uppercase tracking-[0.2em] hover:text-[#18181b] transition-colors flex items-center gap-2 border-b border-[#e4e4e7] hover:border-[#18181b] pb-1 cursor-pointer"
             >
               View all on Github ↗
             </a>
           </div>
         </div>
-        
-        {/* Physical Spacer to Bypass Line-Height Bleed */}
+
+        {/* Physical Spacer */}
         <div className="mobile-gap" style={{ display: 'block', height: '50px', width: '100%', flexShrink: 0 }}></div>
 
         <div className="w-full overflow-hidden pb-32">
