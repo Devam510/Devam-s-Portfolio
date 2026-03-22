@@ -67,7 +67,7 @@ const ExpandOnHover = ({ items = [] }: { items?: ExpandCardItem[] }) => {
       </div>
 
       {/* Dynamic Animated Tagline */}
-      <div className="mt-10 md:mt-12 flex justify-center items-center relative overflow-hidden w-full h-8 px-4">
+      <div className="mt-15 md:mt-15 flex justify-center items-center relative overflow-hidden w-full h-20 px-4">
         <AnimatePresence mode="wait">
           <motion.p
             key={expandedIndex}
