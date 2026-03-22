@@ -91,7 +91,7 @@ export const projects = [
   },
   {
     id: 8,
-    title: "Vibe Workforce Portal",
+    title: "Vibe Tech labs Workforce Portal",
     subtitle: "Enterprise App",
     description:
       "A custom-built Next.js enterprise application handling employee authentication, live attendance logs, and administrative security monitoring dashboards.",

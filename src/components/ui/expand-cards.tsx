@@ -14,6 +14,14 @@ export interface ExpandCardItem {
 const ExpandOnHover = ({ items = [] }: { items?: ExpandCardItem[] }) => {
   const [expandedIndex, setExpandedIndex] = useState(0);
 
+  const handleCardClick = (idx: number, githubUrl?: string) => {
+    if (expandedIndex === idx && githubUrl) {
+      window.open(githubUrl, "_blank", "noopener,noreferrer");
+    } else {
+      setExpandedIndex(idx);
+    }
+  };
+
   const getWidth = (index: number) =>
     index === expandedIndex ? "32rem" : "5rem";
 
@@ -23,7 +31,7 @@ const ExpandOnHover = ({ items = [] }: { items?: ExpandCardItem[] }) => {
 
   return (
     <div className="w-full">
-      <div className="relative flex flex-col md:flex-row items-center justify-start gap-2 transition-all duration-300 ease-in-out w-full max-w-7xl mx-auto px-4 md:h-[500px]">
+      <div className="relative flex flex-col md:flex-row items-center justify-start gap-2 transition-all duration-300 ease-in-out w-full max-w-7xl mx-auto px-4 md:h-[475px]">
         {items.map((item, idx) => (
           <div
             key={item.id}
@@ -33,7 +41,7 @@ const ExpandOnHover = ({ items = [] }: { items?: ExpandCardItem[] }) => {
               height: typeof window !== "undefined" && window.innerWidth < 768 ? getMobileHeight(idx) : "100%" 
             }}
             onMouseEnter={() => setExpandedIndex(idx)}
-            onClick={() => setExpandedIndex(idx)}
+            onClick={() => handleCardClick(idx, item.github)}
           >
             <img
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"

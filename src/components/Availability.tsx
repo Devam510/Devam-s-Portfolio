@@ -114,7 +114,7 @@ const Availability = () => {
         <motion.div
           initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: '-15%' }}
+          viewport={{ once: false, margin: '-15%' }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', width: '100%' }}
         >
@@ -129,17 +129,17 @@ const Availability = () => {
             <h2 style={{ fontSize: '64px', fontWeight: 700, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: '24px', color: '#18181b', display: 'flex', flexDirection: 'column' }}>
               {/* Effect 01 — Text Split Reveal */}
               <div style={{ overflow: 'hidden' }}>
-                <motion.span style={{ display: 'inline-block' }} initial={{ opacity: 0, y: 60, clipPath: 'inset(100% 0% 0% 0%)' }} whileInView={{ opacity: 1, y: 0, clipPath: 'inset(0% 0% 0% 0%)' }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.0 }} viewport={{ once: true }}>
+                <motion.span style={{ display: 'inline-block' }} initial={{ opacity: 0, y: 60, clipPath: 'inset(100% 0% 0% 0%)' }} whileInView={{ opacity: 1, y: 0, clipPath: 'inset(0% 0% 0% 0%)' }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.0 }} viewport={{ once: false }}>
                   Currently
                 </motion.span>
               </div>
               <div style={{ overflow: 'hidden' }}>
-                <motion.span style={{ display: 'inline-block', fontStyle: 'italic', fontFamily: 'Georgia, serif', fontWeight: 300 }} initial={{ opacity: 0, y: 60, clipPath: 'inset(100% 0% 0% 0%)' }} whileInView={{ opacity: 1, y: 0, clipPath: 'inset(0% 0% 0% 0%)' }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.12 }} viewport={{ once: true }}>
+                <motion.span style={{ display: 'inline-block', fontStyle: 'italic', fontFamily: 'Georgia, serif', fontWeight: 300 }} initial={{ opacity: 0, y: 60, clipPath: 'inset(100% 0% 0% 0%)' }} whileInView={{ opacity: 1, y: 0, clipPath: 'inset(0% 0% 0% 0%)' }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.12 }} viewport={{ once: false }}>
                   unavailable
                 </motion.span>
               </div>
               <div style={{ overflow: 'hidden' }}>
-                <motion.span style={{ display: 'inline-block' }} initial={{ opacity: 0, y: 60, clipPath: 'inset(100% 0% 0% 0%)' }} whileInView={{ opacity: 1, y: 0, clipPath: 'inset(0% 0% 0% 0%)' }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.24 }} viewport={{ once: true }}>
+                <motion.span style={{ display: 'inline-block' }} initial={{ opacity: 0, y: 60, clipPath: 'inset(100% 0% 0% 0%)' }} whileInView={{ opacity: 1, y: 0, clipPath: 'inset(0% 0% 0% 0%)' }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.24 }} viewport={{ once: false }}>
                   for hire
                 </motion.span>
               </div>
@@ -180,7 +180,7 @@ const Availability = () => {
         <motion.div
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: '-15%' }}
+          viewport={{ once: false, margin: '-15%' }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
           style={{ width: '100%' }}
         >
@@ -189,7 +189,7 @@ const Availability = () => {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-10%' }}
+            viewport={{ once: false, margin: '-10%' }}
             style={{ display: 'flex', flexDirection: 'column', width: '100%' }}
           >
             {rowsData.map((row, i) => (
