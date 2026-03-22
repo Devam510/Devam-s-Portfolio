@@ -215,7 +215,7 @@ const Availability = () => {
                   transition={{ duration: 0.2 }}
                   style={{ position: 'absolute', left: '0px', top: '10%', width: '2px', height: '80%', background: '#18181b', transformOrigin: 'top', borderRadius: '2px' }}
                 />
-                <span style={{ color: '#a1a1aa', fontSize: '11px', fontFamily: 'monospace', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                <span style={{ color: '#515154ff', fontSize: '11px', fontFamily: 'monospace', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                   {row.label}
                 </span>
                 {typeof row.value === 'string' ? <span style={{ color: '#18181b', fontSize: '13px', fontWeight: 500 }}>{row.value}</span> : row.value}

@@ -211,12 +211,12 @@ export default function Contact() {
               width: '5px',
               height: '5px',
               borderRadius: '50%',
-              background: '#18181b',
+              background: '#000000ff',
             }} />
             <span style={{
               fontFamily: 'monospace',
               fontSize: '9px',
-              color: '#a1a1aa',
+              color: '#5a5a5eff',
               letterSpacing: '0.06em',
             }}>
               Responds within 12 hours

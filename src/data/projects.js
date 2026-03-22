@@ -69,6 +69,29 @@ export const projects = [
     github: "https://github.com/Devam510",
     featured: false,
     color: "#5dffcb",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070"
   },
+  {
+    id: 7,
+    title: "AI Calling Agent",
+    subtitle: "Autonomous Voice",
+    description:
+      "Free AI-powered outbound calling agent built with Groq (Whisper + LLaMA 3), Twilio, and Edge-TTS. Automatically handles client calls with zero subscription cost.",
+    tags: ["LLaMA 3", "Whisper", "Twilio", "Voice AI"],
+    github: "https://github.com/Devam510/Calling-Agent",
+    featured: false,
+    color: "#7b5cf0",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965"
+  },
+  {
+    id: 8,
+    title: "Vibe Workforce Portal",
+    subtitle: "Enterprise App",
+    description:
+      "A custom-built Next.js enterprise application handling employee authentication, live attendance logs, and administrative security monitoring dashboards.",
+    tags: ["Next.js", "React", "Enterprise", "Dashboards"],
+    github: "https://github.com/Devam510/IT-Attendence",
+    featured: false,
+    color: "#5dffcb",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069"
+  }
 ];
