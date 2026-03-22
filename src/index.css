@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+/* shadcn CSS variables — required for bg-background, text-foreground etc. */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 5%;
+}
+
+/* Reset default Vite styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
+

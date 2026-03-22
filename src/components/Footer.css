@@ -1,0 +1,33 @@
+.footer {
+  border-top: 1px solid #e8e8e8;
+  background: #fafafa;
+  padding: 28px 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0d0d0d;
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: #aaa;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-stack {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #bbb;
+  letter-spacing: 0.05em;
+}

@@ -1,0 +1,58 @@
+.skills-minimal {
+  background-color: #ffffff; /* White background */
+  padding: 140px 20px;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.skills-label {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #333;
+  letter-spacing: 0.2em;
+  margin-bottom: 100px;
+}
+
+.skills-grid-minimal {
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+  margin: 0 auto;
+  gap: 60px;
+}
+
+.skills-col {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  flex: 1;
+}
+
+/* Force dark color specifically so light mode backgrounds don't wash it out */
+.skill-txt {
+  font-size: 28px;
+  font-weight: 400; /* Increased weight for visibility */
+  color: #111111 !important; 
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  /* Make sure it's fully opaque except during framer-motion */
+  opacity: 1; 
+}
+
+@media (min-width: 768px) {
+  .skill-txt {
+     font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-grid-minimal {
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+  }
+}
