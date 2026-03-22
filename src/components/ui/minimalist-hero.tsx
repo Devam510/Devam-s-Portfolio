@@ -73,7 +73,7 @@ export const MinimalistHero = ({
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentRole(prev => (prev + 1) % roles.length);
-    }, 2500);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 

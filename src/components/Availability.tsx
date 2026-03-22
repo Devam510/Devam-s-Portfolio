@@ -47,9 +47,17 @@ const Availability = () => {
   };
 
   const rowVariants = {
-    hidden: { opacity: 0, x: 40 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
     hover: { backgroundColor: 'rgba(0,0,0,0.02)' }
+  };
+
+  const headingSpanVariants = {
+    hidden: { opacity: 0, y: 60, clipPath: 'inset(100% 0% 0% 0%)' },
+    visible: (custom: number) => ({
+      opacity: 1,
+      y: 0,
+      clipPath: 'inset(0% 0% 0% 0%)',
+      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as any, delay: custom }
+    })
   };
 
   const rowsData = [
@@ -112,10 +120,13 @@ const Availability = () => {
 
         {/* Left Column (Effect 09) */}
         <motion.div
-          initial={{ opacity: 0, x: -60 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: false, margin: '-15%' }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          variants={{
+            hidden: { opacity: 0, x: -60 },
+            visible: { opacity: 1, x: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as any } }
+          }}
           style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', width: '100%' }}
         >
           {/* Effect 02 — 3D Tilt on Heading */}
@@ -129,17 +140,29 @@ const Availability = () => {
             <h2 style={{ fontSize: '64px', fontWeight: 700, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: '24px', color: '#18181b', display: 'flex', flexDirection: 'column' }}>
               {/* Effect 01 — Text Split Reveal */}
               <div style={{ overflow: 'hidden' }}>
-                <motion.span style={{ display: 'inline-block' }} initial={{ opacity: 0, y: 60, clipPath: 'inset(100% 0% 0% 0%)' }} whileInView={{ opacity: 1, y: 0, clipPath: 'inset(0% 0% 0% 0%)' }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.0 }} viewport={{ once: false }}>
+                <motion.span 
+                  style={{ display: 'inline-block' }} 
+                  variants={headingSpanVariants}
+                  custom={0}
+                >
                   Currently
                 </motion.span>
               </div>
               <div style={{ overflow: 'hidden' }}>
-                <motion.span style={{ display: 'inline-block', fontStyle: 'italic', fontFamily: 'Georgia, serif', fontWeight: 300 }} initial={{ opacity: 0, y: 60, clipPath: 'inset(100% 0% 0% 0%)' }} whileInView={{ opacity: 1, y: 0, clipPath: 'inset(0% 0% 0% 0%)' }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.12 }} viewport={{ once: false }}>
+                <motion.span 
+                  style={{ display: 'inline-block', fontStyle: 'italic', fontFamily: 'Georgia, serif', fontWeight: 300 }} 
+                  variants={headingSpanVariants}
+                  custom={0.12}
+                >
                   unavailable
                 </motion.span>
               </div>
               <div style={{ overflow: 'hidden' }}>
-                <motion.span style={{ display: 'inline-block' }} initial={{ opacity: 0, y: 60, clipPath: 'inset(100% 0% 0% 0%)' }} whileInView={{ opacity: 1, y: 0, clipPath: 'inset(0% 0% 0% 0%)' }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.24 }} viewport={{ once: false }}>
+                <motion.span 
+                  style={{ display: 'inline-block' }} 
+                  variants={headingSpanVariants}
+                  custom={0.24}
+                >
                   for hire
                 </motion.span>
               </div>
