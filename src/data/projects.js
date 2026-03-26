@@ -12,7 +12,8 @@ export const projects = [
     github: "https://github.com/Devam510",
     featured: true,
     color: "#7b5cf0",
-    image: uidaiImage
+    image: uidaiImage,
+    imageClass: "object-cover object-left"
   },
   {
     id: 2,

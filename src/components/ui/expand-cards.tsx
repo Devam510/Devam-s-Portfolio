@@ -9,6 +9,7 @@ export interface ExpandCardItem {
   github?: string;
   tags?: string[];
   shortDesc?: string;
+  imageClass?: string;
 }
 
 const ExpandOnHover = ({ items = [] }: { items?: ExpandCardItem[] }) => {
@@ -44,7 +45,7 @@ const ExpandOnHover = ({ items = [] }: { items?: ExpandCardItem[] }) => {
             onClick={() => handleCardClick(idx, item.github)}
           >
             <img
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              className={`absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 ${item.imageClass || 'object-cover'}`}
               src={item.image}
               alt={item.title}
             />
