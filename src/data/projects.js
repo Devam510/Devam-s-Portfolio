@@ -1,3 +1,5 @@
+import uidaiImage from '../UIDAI_FI.png';
+
 export const projects = [
   {
     id: 1,
@@ -10,7 +12,7 @@ export const projects = [
     github: "https://github.com/Devam510",
     featured: true,
     color: "#7b5cf0",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070"
+    image: uidaiImage
   },
   {
     id: 2,
