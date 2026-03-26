@@ -1,16 +1,43 @@
-# React + Vite
+# Devam Patel's Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, fast, and fully responsive personal portfolio built with React, Vite, Framer Motion, and Tailwind CSS. The portfolio features smooth parallax scrolling, highly interactive animations, a custom horizontal scroll section for projects, and interactive magnetic buttons.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[https://devam-s-portfolio.vercel.app/](https://devam-s-portfolio.vercel.app/)
 
-## React Compiler
+## 🛠️ Built With
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework:** React + Vite
+- **Styling:** Tailwind CSS + Vanilla CSS
+- **Animations:** Framer Motion + Lenis (Smooth Scrolling)
+- **Deployment:** Vercel
 
-## Expanding the ESLint configuration
+## ✨ Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Fully Responsive:** Beautifully adapts from mobile to ultrawide desktop screens (clamp typography, auto-fit grids).
+- **Smooth Scrolling:** Powered by Lenis for buttery smooth navigation.
+- **Complex Animations:** Letter swapping, text scrambling, and orchestrated variants using Framer Motion.
+- **Custom Desktop Layouts:** Specialized horizontal scroll, sticky columns for skills, and large typography elements.
+- **Interactive UI Elements:** Magnetic buttons, tilt-on-hover headings, and dynamic cursor effects.
+
+## 👨‍💻 Local Development
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Devam510/Devam-s-Portfolio.git
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+## 📬 Contact
+
+Reach out via the contact form on my portfolio or connect with me via [LinkedIn/GitHub].
