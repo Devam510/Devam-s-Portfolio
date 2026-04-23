@@ -1,6 +1,7 @@
 import uidaiImage from '../UIDAI_FI.png';
 import vibeTechImage from '../assets/vibe_tech.png';
 import monosemanticsImage from '../assets/monosemanticity.png';
+import ecomApiImage from '../assets/ecom_api.png';
 
 export const projects = [
   {
@@ -80,6 +81,8 @@ export const projects = [
     github: "https://github.com/Devam510",
     featured: false,
     color: "#5dffcb",
+    image: ecomApiImage,
+    imageClass: "object-cover object-center"
   },
   {
     id: 7,
