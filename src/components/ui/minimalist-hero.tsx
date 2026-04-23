@@ -89,6 +89,7 @@ export const MinimalistHero = ({
   const imageX = useTransform(scrollY, [0, animEnd], ['0px', '-600px']); // Perfectly positioned between your text and the left cut-off
   const imageScale = useTransform(scrollY, [0, animEnd], [1, 0.85]);
   const imageRotate = useTransform(scrollY, [0, animEnd], [0, 0]);
+  const flipRotationY = useTransform(scrollY, [0, animEnd], [0, 180]);
   
   // Hero Typography Parting Effects
   const textLeftOut = useTransform(scrollY, [0, animEnd], ['0px', '-300px']);
@@ -310,19 +311,69 @@ export const MinimalistHero = ({
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             className="absolute z-0 h-[280px] w-[280px] rounded-full bg-yellow-400/90"
           />
-          <motion.img
-            src={imageSrc}
-            alt={imageAlt}
-            className="relative z-10 h-auto w-52 object-cover"
+          <motion.div
+            style={{
+              position: 'relative',
+              zIndex: 10,
+              height: '340px',
+              width: '240px',
+              perspective: 1000,
+            }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.onerror = null;
-              target.src = `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop&crop=face`;
-            }}
-          />
+          >
+            <motion.div
+              style={{
+                width: '100%',
+                height: '100%',
+                transformStyle: 'preserve-3d',
+                rotateY: flipRotationY,
+              }}
+            >
+              {/* Front Face */}
+              <img
+                src={imageSrc}
+                alt={imageAlt}
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: '32px',
+                  backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden',
+                }}
+              />
+              {/* Back Face */}
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '32px',
+                  background: '#18181b',
+                  color: '#fff',
+                  padding: '32px 24px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden',
+                  transform: 'rotateY(180deg)',
+                }}
+              >
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '28px', fontWeight: 800, marginBottom: '16px', lineHeight: 1.1 }}>
+                  About Me
+                </h3>
+                <p style={{ fontFamily: 'monospace', fontSize: '11px', color: '#a1a1aa', lineHeight: 1.7 }}>
+                  I'm Devam Patel, an AI & Full-Stack Engineer. I build scalable solutions bridging the gap between cutting-edge research and practical applications.
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -372,37 +423,76 @@ export const MinimalistHero = ({
             style={{ opacity: circleOpacity, translateY: '-15%' }}
           />
 
-          {/* ✅ Photo */}
-          <motion.img
-            src={imageSrc}
-            alt={imageAlt}
+          {/* ✅ 3D Flip Card */}
+          <motion.div
             style={{
               position: 'fixed',
               zIndex: 50,
-              top: '0vh',
+              top: '12vh',
               left: '50%',
-              marginLeft: '-200px',
-              height: '110vh',
-              width: 'auto',
-              maxWidth: 'none',
-              objectFit: 'cover',
-              objectPosition: 'top',
+              marginLeft: '-220px',
+              height: '76vh',
+              width: '440px',
               x: imageX,
               y: imageY,
               scale: imageScale,
               rotate: imageRotate,
+              rotateY: flipRotationY,
               opacity: imageOpacity,
               willChange: 'transform',
+              transformStyle: 'preserve-3d',
+              perspective: 1000,
             }}
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.onerror = null;
-              target.src = `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop&crop=face`;
-            }}
-          />
+          >
+            {/* Front Face */}
+            <img
+              src={imageSrc}
+              alt={imageAlt}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: '40px',
+                backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
+                boxShadow: '0 24px 64px rgba(0,0,0,0.15)',
+              }}
+            />
+            {/* Back Face */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                borderRadius: '40px',
+                background: '#18181b',
+                color: '#fff',
+                padding: '48px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
+                transform: 'rotateY(180deg)',
+                boxShadow: '0 24px 64px rgba(0,0,0,0.15)',
+              }}
+            >
+              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '42px', fontWeight: 800, marginBottom: '24px', lineHeight: 1.1 }}>
+                About Me
+              </h3>
+              <p style={{ fontFamily: 'monospace', fontSize: '14px', color: '#a1a1aa', lineHeight: 1.8 }}>
+                I'm Devam Patel, an AI & Data Science professional passionate about turning complex data into real-world decisions.
+                <br/><br/>
+                With experience in computer vision, autonomous systems, and predictive analytics, I build scalable solutions that bridge the gap between cutting-edge research and practical applications.
+              </p>
+            </div>
+          </motion.div>
         </div>
 
         {/* Col 3 — Patel */}

@@ -22,7 +22,7 @@ const MinimalistHeroDemo = () => {
       <MinimalistHero
         navLinks={navLinks}
         readMoreLink="#about"
-        imageSrc="/devam.png"
+        imageSrc="/profile.png"
         overlayText={{
           part1: 'Devam',
           part2: 'Patel',
