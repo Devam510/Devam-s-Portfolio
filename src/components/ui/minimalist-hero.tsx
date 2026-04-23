@@ -81,10 +81,11 @@ export const MinimalistHero = ({
 
   // Since Skills track is now 250vh long:
   // Hero (100vh) + Skills (250vh) = 350vh total.
-  // The image stays exactly locked (0px) natively without jitter until the end of Skills
-  // Hero is 100vh, Skills is exactly 100vh. Projects starts at 200vh.
-  const exitStart = vh * 1.2; 
-  const exitEnd = vh * 2.0;
+  // The image stays exactly locked (0px) natively without jitter until the 100vh mark.
+  // After 100vh (when Skills is fully on screen), the image will scroll up at EXACTLY 1:1 speed with the page.
+  // This makes it feel like it's physically glued to the Skills section and scrolls away naturally.
+  const exitStart = vh * 1.0; 
+  const exitEnd = vh * 2.5;
 
   const imageX = useTransform(scrollY, [0, animEnd], ['0vw', '-30vw']); // Responsively centers in the left half
   const imageScale = useTransform(scrollY, [0, animEnd], [1, 0.85]);
@@ -97,8 +98,8 @@ export const MinimalistHero = ({
   const mobileTextUpOut = useTransform(scrollY, [0, animEnd], ['0px', '-100px']);
   const textFadeOut = useTransform(scrollY, [0, animEnd], [1, 0]);
 
-  // It does NOT artificially track scroll anymore, eliminating the "laggy/coops" effect entirely.
-  const imageY = useTransform(scrollY, [0, exitStart, exitEnd], ['0px', '0px', `-${vh + 100}px`]);
+  // It now perfectly simulates native scrolling by translating exactly 1px for every 1px scrolled!
+  const imageY = useTransform(scrollY, [0, exitStart, exitEnd], ['0px', '0px', `-${vh * 1.5}px`]);
 
   // We map opacity to scrollYProgress to fade out eventually, or keep it 1 to stay solid entirely
   const imageOpacity = useTransform(
