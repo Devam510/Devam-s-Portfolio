@@ -84,19 +84,19 @@ export const MinimalistHero = ({
   // The image stays exactly locked (0px) natively without jitter until the 250vh mark.
   // Then between 2.5 * vh and 3.5 * vh, it physically translates UP off the screen out of the way!
   const exitStart = vh * 1.5; // Starts moving up as we approach the now-shorter bottom of Skills
-  const exitEnd = vh * 2.5; 
+  const exitEnd = vh * 2.5;
 
-  const imageX = useTransform(scrollY, [0, animEnd], ['0vw', '-25vw']); // Responsively centers in the left half
+  const imageX = useTransform(scrollY, [0, animEnd], ['0vw', '-30vw']); // Responsively centers in the left half
   const imageScale = useTransform(scrollY, [0, animEnd], [1, 0.85]);
   const imageRotate = useTransform(scrollY, [0, animEnd], [0, 0]);
   const flipRotationY = useTransform(scrollY, [0, animEnd], ['0deg', '180deg'], { clamp: true });
-  
+
   // Hero Typography Parting Effects
   const textLeftOut = useTransform(scrollY, [0, animEnd], ['0px', '-300px']);
   const textRightOut = useTransform(scrollY, [0, animEnd], ['0px', '300px']);
   const mobileTextUpOut = useTransform(scrollY, [0, animEnd], ['0px', '-100px']);
   const textFadeOut = useTransform(scrollY, [0, animEnd], [1, 0]);
-  
+
   // It does NOT artificially track scroll anymore, eliminating the "laggy/coops" effect entirely.
   const imageY = useTransform(scrollY, [0, exitStart, exitEnd], ['0px', '0px', `-${vh + 100}px`]);
 
@@ -158,7 +158,7 @@ export const MinimalistHero = ({
           textTransform: 'uppercase',
           lineHeight: 1.6,
         }}>
-          Years of<br/>Coding
+          Years of<br />Coding
         </span>
         <div style={{ width: '32px', height: '1px', background: '#18181b', marginTop: '6px' }} />
       </motion.div>
@@ -197,7 +197,7 @@ export const MinimalistHero = ({
           letterSpacing: '0.01em',
           margin: 0,
         }}>
-          Sometimes you gotta run before,<br/>you can walk.
+          Sometimes you gotta run before,<br />you can walk.
         </p>
         <span style={{
           fontFamily: 'monospace',
@@ -297,7 +297,7 @@ export const MinimalistHero = ({
           transition={{ duration: 0.8, delay: 0.3 }}
           style={{ y: mobileTextUpOut, opacity: textFadeOut }}
         >
-          <h1 
+          <h1
             className="text-7xl font-extrabold text-foreground leading-none text-center"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
@@ -395,14 +395,14 @@ export const MinimalistHero = ({
         <motion.div
           initial={{ opacity: 0, x: "-100vw" }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.05}}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
           className="col-span-1 flex items-center justify-end"
         >
-          <motion.h1 style={{ 
+          <motion.h1 style={{
             fontFamily: "'Playfair Display', serif",
-            fontSize: '120px', 
-            fontWeight: 900, 
-            lineHeight: 1, 
+            fontSize: '120px',
+            fontWeight: 900,
+            lineHeight: 1,
             marginRight: '60px',
             x: textLeftOut,
             opacity: textFadeOut
@@ -428,7 +428,7 @@ export const MinimalistHero = ({
             style={{
               position: 'fixed',
               zIndex: 50,
-              top: '12vh',
+              top: '16vh',
               left: '50%',
               marginLeft: '-220px',
               height: '76vh',
@@ -496,7 +496,7 @@ export const MinimalistHero = ({
                 </h3>
                 <p style={{ fontFamily: 'monospace', fontSize: '14px', color: '#a1a1aa', lineHeight: 1.8 }}>
                   I'm Devam Patel, an AI & Data Science professional passionate about turning complex data into real-world decisions.
-                  <br/><br/>
+                  <br /><br />
                   With experience in computer vision, autonomous systems, and predictive analytics, I build scalable solutions that bridge the gap between cutting-edge research and practical applications.
                 </p>
               </div>
@@ -511,11 +511,11 @@ export const MinimalistHero = ({
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.25 }}
           className="col-span-1 flex items-center justify-end"
         >
-          <motion.h1 style={{ 
+          <motion.h1 style={{
             fontFamily: "'Playfair Display', serif",
-            fontSize: '120px', 
-            fontWeight: 900, 
-            lineHeight: 1, 
+            fontSize: '120px',
+            fontWeight: 900,
+            lineHeight: 1,
             marginRight: '80px',
             x: textRightOut,
             opacity: textFadeOut
