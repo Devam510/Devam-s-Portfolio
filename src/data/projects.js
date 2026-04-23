@@ -1,4 +1,6 @@
 import uidaiImage from '../UIDAI_FI.png';
+import vibeTechImage from '../assets/vibe_tech.png';
+import monosemanticsImage from '../assets/monosemanticity.png';
 
 export const projects = [
   {
@@ -81,20 +83,21 @@ export const projects = [
   },
   {
     id: 7,
-    title: "AI Calling Agent",
-    subtitle: "Autonomous Voice",
+    title: "Towards Monosemanticity",
+    subtitle: "AI Research",
     description:
-      "Free AI-powered outbound calling agent built with Groq (Whisper + LLaMA 3), Twilio, and Edge-TTS. Automatically handles client calls with zero subscription cost.",
-    shortDesc: "Free autonomous outbound calling agent using LLaMA 3.",
-    tags: ["LLaMA 3", "Whisper", "Twilio", "Voice AI"],
-    github: "https://github.com/Devam510/Calling-Agent",
+      "A research-driven implementation exploring monosemanticity in neural networks — making individual neurons correspond to single, interpretable features using sparse autoencoders.",
+    shortDesc: "Sparse autoencoders for interpretable, monosemantic neural features.",
+    tags: ["Python", "Interpretability", "Sparse Autoencoders", "Research"],
+    github: "https://github.com/Devam510/Towards-Monosemanticity",
     featured: false,
     color: "#7b5cf0",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965"
+    image: monosemanticsImage,
+    imageClass: "object-cover object-center"
   },
   {
     id: 8,
-    title: "Vibe Tech labs Workforce Portal",
+    title: "Vibe Tech Labs Workforce Portal",
     subtitle: "Enterprise App",
     description:
       "A custom-built Next.js enterprise application handling employee authentication, live attendance logs, and administrative security monitoring dashboards.",
@@ -103,6 +106,7 @@ export const projects = [
     github: "https://github.com/Devam510/IT-Attendence",
     featured: false,
     color: "#5dffcb",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069"
+    image: vibeTechImage,
+    imageClass: "object-cover object-center"
   }
 ];
