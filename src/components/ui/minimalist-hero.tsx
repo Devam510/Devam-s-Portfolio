@@ -89,7 +89,7 @@ export const MinimalistHero = ({
   const imageX = useTransform(scrollY, [0, animEnd], ['0px', '-600px']); // Perfectly positioned between your text and the left cut-off
   const imageScale = useTransform(scrollY, [0, animEnd], [1, 0.85]);
   const imageRotate = useTransform(scrollY, [0, animEnd], [0, 0]);
-  const flipRotationY = useTransform(scrollY, [0, animEnd], [0, 180]);
+  const flipRotationY = useTransform(scrollY, [0, animEnd], ['0deg', '180deg'], { clamp: true });
   
   // Hero Typography Parting Effects
   const textLeftOut = useTransform(scrollY, [0, animEnd], ['0px', '-300px']);
@@ -423,7 +423,7 @@ export const MinimalistHero = ({
             style={{ opacity: circleOpacity, translateY: '-15%' }}
           />
 
-          {/* ✅ 3D Flip Card */}
+          {/* ✅ 3D Flip Card Container */}
           <motion.div
             style={{
               position: 'fixed',
@@ -437,61 +437,70 @@ export const MinimalistHero = ({
               y: imageY,
               scale: imageScale,
               rotate: imageRotate,
-              rotateY: flipRotationY,
               opacity: imageOpacity,
               willChange: 'transform',
-              transformStyle: 'preserve-3d',
-              perspective: 1000,
+              perspective: 1200,
             }}
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
           >
-            {/* Front Face */}
-            <img
-              src={imageSrc}
-              alt={imageAlt}
+            {/* The 3D Rotating Card */}
+            <motion.div
               style={{
-                position: 'absolute',
-                inset: 0,
+                position: 'relative',
                 width: '100%',
                 height: '100%',
-                objectFit: 'cover',
-                borderRadius: '40px',
-                backfaceVisibility: 'hidden',
-                WebkitBackfaceVisibility: 'hidden',
-                boxShadow: '0 24px 64px rgba(0,0,0,0.15)',
-              }}
-            />
-            {/* Back Face */}
-            <div
-              style={{
-                position: 'absolute',
-                inset: 0,
-                width: '100%',
-                height: '100%',
-                borderRadius: '40px',
-                background: '#18181b',
-                color: '#fff',
-                padding: '48px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                backfaceVisibility: 'hidden',
-                WebkitBackfaceVisibility: 'hidden',
-                transform: 'rotateY(180deg)',
-                boxShadow: '0 24px 64px rgba(0,0,0,0.15)',
+                transformStyle: 'preserve-3d',
+                rotateY: flipRotationY,
               }}
             >
-              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '42px', fontWeight: 800, marginBottom: '24px', lineHeight: 1.1 }}>
-                About Me
-              </h3>
-              <p style={{ fontFamily: 'monospace', fontSize: '14px', color: '#a1a1aa', lineHeight: 1.8 }}>
-                I'm Devam Patel, an AI & Data Science professional passionate about turning complex data into real-world decisions.
-                <br/><br/>
-                With experience in computer vision, autonomous systems, and predictive analytics, I build scalable solutions that bridge the gap between cutting-edge research and practical applications.
-              </p>
-            </div>
+              {/* Front Face */}
+              <img
+                src={imageSrc}
+                alt={imageAlt}
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: '40px',
+                  backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden',
+                  boxShadow: '0 24px 64px rgba(0,0,0,0.15)',
+                }}
+              />
+              {/* Back Face */}
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: '40px',
+                  background: '#18181b',
+                  color: '#fff',
+                  padding: '48px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden',
+                  transform: 'rotateY(180deg)',
+                  boxShadow: '0 24px 64px rgba(0,0,0,0.15)',
+                }}
+              >
+                <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '42px', fontWeight: 800, marginBottom: '24px', lineHeight: 1.1 }}>
+                  About Me
+                </h3>
+                <p style={{ fontFamily: 'monospace', fontSize: '14px', color: '#a1a1aa', lineHeight: 1.8 }}>
+                  I'm Devam Patel, an AI & Data Science professional passionate about turning complex data into real-world decisions.
+                  <br/><br/>
+                  With experience in computer vision, autonomous systems, and predictive analytics, I build scalable solutions that bridge the gap between cutting-edge research and practical applications.
+                </p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
 
