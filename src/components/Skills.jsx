@@ -75,7 +75,7 @@ export default function Skills() {
       </div>
 
       {/* Mobile simple grid version */}
-      <section id="skills" className="md:hidden" style={{ background: '#fafafa', padding: 'clamp(60px, 8vw, 80px) clamp(24px, 6vw, 48px)' }}>
+      <section id="skills" className="md:hidden" style={{ background: '#fafafa', paddingTop: '380px', paddingBottom: '80px', paddingLeft: 'clamp(24px, 6vw, 48px)', paddingRight: 'clamp(24px, 6vw, 48px)' }}>
         {/* Label */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '40px' }}>
           <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#22c55e' }} />
