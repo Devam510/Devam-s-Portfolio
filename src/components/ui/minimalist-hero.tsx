@@ -38,8 +38,20 @@ export const MinimalistHero = ({
   const { scrollYProgress, scrollY } = useScroll();
 
   const [vh, setVh] = React.useState(typeof window !== 'undefined' ? window.innerHeight : 900);
+  const [skillsHeight, setSkillsHeight] = React.useState(800); // Fallback estimate
+
   React.useEffect(() => {
-    const handleResize = () => setVh(window.innerHeight);
+    const handleResize = () => {
+      setVh(window.innerHeight);
+      const skillsEl = document.getElementById('skills-desktop');
+      if (skillsEl) setSkillsHeight(skillsEl.clientHeight);
+    };
+    
+    // Initial measure after mount
+    handleResize();
+    // Slight delay to ensure fonts/layout are loaded
+    setTimeout(handleResize, 100);
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -79,13 +91,13 @@ export const MinimalistHero = ({
   // Fly-in animation completes at 820px
   const animEnd = 820;
 
-  // Since Skills track is now 250vh long:
-  // Hero (100vh) + Skills (250vh) = 350vh total.
-  // The image stays exactly locked (0px) natively without jitter until the 100vh mark.
-  // After 100vh (when Skills is fully on screen), the image will scroll up at EXACTLY 1:1 speed with the page.
-  // This makes it feel like it's physically glued to the Skills section and scrolls away naturally.
-  const exitStart = vh * 1.0; 
-  const exitEnd = vh * 2.5;
+  // The image stays exactly locked (0px) natively without jitter inside the Hero and Skills sections.
+  // We calculate exactly when the bottom of the card touches the top of Projects.
+  // Card bottom = 18vh + 76vh = 94vh. 
+  // Projects top = 100vh + skillsHeight.
+  // Overlap occurs when scrollY + 94vh = 100vh + skillsHeight -> scrollY = 6vh + skillsHeight.
+  const exitStart = (vh * 0.06) + skillsHeight; 
+  const exitEnd = exitStart + (vh * 1.5);
 
   const imageX = useTransform(scrollY, [0, animEnd], ['0vw', '-30vw']); // Responsively centers in the left half
   const imageScale = useTransform(scrollY, [0, animEnd], [1, 0.85]);
