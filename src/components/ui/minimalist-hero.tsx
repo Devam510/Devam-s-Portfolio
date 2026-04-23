@@ -86,7 +86,7 @@ export const MinimalistHero = ({
   const exitStart = vh * 1.5; // Starts moving up as we approach the now-shorter bottom of Skills
   const exitEnd = vh * 2.5; 
 
-  const imageX = useTransform(scrollY, [0, animEnd], ['0px', '-600px']); // Perfectly positioned between your text and the left cut-off
+  const imageX = useTransform(scrollY, [0, animEnd], ['0vw', '-25vw']); // Responsively centers in the left half
   const imageScale = useTransform(scrollY, [0, animEnd], [1, 0.85]);
   const imageRotate = useTransform(scrollY, [0, animEnd], [0, 0]);
   const flipRotationY = useTransform(scrollY, [0, animEnd], ['0deg', '180deg'], { clamp: true });
