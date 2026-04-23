@@ -43,11 +43,10 @@ export const MinimalistHero = ({
   React.useEffect(() => {
     const handleResize = () => {
       setVh(window.innerHeight);
-      const isMobile = window.innerWidth < 768;
-      const skillsEl = document.getElementById(isMobile ? 'skills' : 'skills-desktop');
+      const skillsEl = document.getElementById('skills-desktop');
       if (skillsEl) setSkillsHeight(skillsEl.clientHeight);
     };
-    
+
     // Initial measure after mount
     handleResize();
     // Slight delay to ensure fonts/layout are loaded
@@ -319,34 +318,20 @@ export const MinimalistHero = ({
             {overlayText.part1} {overlayText.part2}
           </h1>
         </motion.div>
-        <div className="relative flex justify-center items-center h-[340px] w-full">
-          {/* Mobile Glowing Orb - Fixed to track scroll */}
+        <div className="relative flex justify-center items-center">
           <motion.div
-            style={{
-              position: 'fixed',
-              top: '50%',
-              marginTop: '-140px',
-              zIndex: 0,
-              y: imageY,
-              opacity: circleOpacity,
-            }}
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="h-[280px] w-[280px] rounded-full bg-yellow-400/90"
+            className="absolute z-0 h-[280px] w-[280px] rounded-full bg-yellow-400/90"
           />
-          {/* Mobile 3D Flip Card - Fixed to track scroll */}
           <motion.div
             style={{
-              position: 'fixed',
-              top: '50%',
-              marginTop: '-170px',
+              position: 'relative',
               zIndex: 10,
               height: '340px',
               width: '240px',
-              perspective: 1200,
-              y: imageY,
-              rotateY: flipRotationY,
+              perspective: 1000,
             }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -354,10 +339,10 @@ export const MinimalistHero = ({
           >
             <motion.div
               style={{
-                position: 'relative',
                 width: '100%',
                 height: '100%',
                 transformStyle: 'preserve-3d',
+                rotateY: flipRotationY,
               }}
             >
               {/* Front Face */}
@@ -449,8 +434,8 @@ export const MinimalistHero = ({
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
             className="absolute z-0 h-[65vh] w-[65vh] rounded-full bg-yellow-400/70"
-            style={{ 
-              opacity: circleOpacity, 
+            style={{
+              opacity: circleOpacity,
               translateY: '-15%',
               filter: 'blur(100px)',
               pointerEvents: 'none'
