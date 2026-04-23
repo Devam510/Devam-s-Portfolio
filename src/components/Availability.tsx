@@ -77,8 +77,8 @@ const Availability = () => {
       ),
     },
     { label: 'Experience', value: 'Ex-Intern @ VibeTech Labs' },
-    { label: 'Role', value: 'AI / Full-Stack Engineer' },
-    { label: 'Location', value: 'Ahmedabad, India' },
+    { label: 'Role', value: 'AI & Data Science' },
+    { label: 'Location', value: 'Ahmedabad, Gujarat' },
     { label: 'Open to', value: 'Full-time & freelance opportunities' },
     {
       label: 'GitHub',
@@ -166,7 +166,7 @@ const Availability = () => {
 
           <p style={{ color: '#71717a', fontSize: '13px', fontFamily: 'monospace', lineHeight: 1.8, marginBottom: '40px', maxWidth: '360px' }}>
             <TextScramble duration={1.2} characterSet="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()" trigger={isInView}>
-              My internship at VibeTech Labs has wrapped up. I'm actively looking for full-time or freelance roles in AI, data science, and full-stack engineering.
+              I am actively looking for full-time or freelance roles in AI & Data Science.
             </TextScramble>
           </p>
 

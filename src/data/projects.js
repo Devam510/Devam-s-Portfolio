@@ -2,6 +2,7 @@ import uidaiImage from '../UIDAI_FI.png';
 import vibeTechImage from '../assets/vibe_tech.png';
 import monosemanticsImage from '../assets/monosemanticity.png';
 import ecomApiImage from '../assets/ecom_api.png';
+import campusVisionImage from '../assets/campus_vision.png';
 
 export const projects = [
   {
@@ -42,7 +43,8 @@ export const projects = [
     github: "https://github.com/Devam510",
     featured: false,
     color: "#7b5cf0",
-    image: "https://images.unsplash.com/photo-1507146153593-596f2273e87e?q=80&w=2070"
+    image: campusVisionImage,
+    imageClass: "object-cover object-center"
   },
   {
     id: 4,

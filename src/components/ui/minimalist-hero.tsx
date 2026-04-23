@@ -66,7 +66,6 @@ export const MinimalistHero = ({
     "Turning raw data into real decisions.",
     "Machine Learning · Deep Learning · NLP",
     "Obsessed with data. Powered by curiosity.",
-    "Currently interning @ Vibe Tech Labs",
   ];
   const [currentRole, setCurrentRole] = useState(0);
 
