@@ -37,13 +37,12 @@ export default function Contact() {
     setStatus('submitting');
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      // Call our custom Vercel backend endpoint
+      const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          // NOTE TO USER: Get your free key at https://web3forms.com/
-          access_key: "YOUR_WEB3FORMS_ACCESS_KEY_HERE", 
-          from_name: formData.name,
+          name: formData.name,
           email: formData.email,
           subject: formData.subject,
           message: formData.message
