@@ -64,29 +64,22 @@ const Availability = () => {
     {
       label: 'Status',
       value: (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#ef4444', fontSize: '13px', fontWeight: 500 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#16a34a', fontSize: '13px', fontWeight: 500 }}>
           {/* Effect 06 — Enhanced Pulsing Status Dot */}
           <span style={{ position: 'relative', display: 'inline-flex', width: '10px', height: '10px' }}>
-            <span style={{ position: 'absolute', inset: '-4px', borderRadius: '50%', border: '1px solid #ef4444', opacity: 0.3, animation: 'ping1 1.5s ease-in-out infinite' }} />
-            <span style={{ position: 'absolute', inset: '-8px', borderRadius: '50%', border: '1px solid #ef4444', opacity: 0.15, animation: 'ping1 1.5s ease-in-out infinite 0.3s' }} />
-            <span style={{ position: 'absolute', inset: '-2px', borderRadius: '50%', background: '#ef4444', opacity: 0.2, filter: 'blur(4px)' }} />
-            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444', display: 'inline-block', position: 'relative', zIndex: 1 }} />
+            <span style={{ position: 'absolute', inset: '-4px', borderRadius: '50%', border: '1px solid #16a34a', opacity: 0.3, animation: 'ping1 1.5s ease-in-out infinite' }} />
+            <span style={{ position: 'absolute', inset: '-8px', borderRadius: '50%', border: '1px solid #16a34a', opacity: 0.15, animation: 'ping1 1.5s ease-in-out infinite 0.3s' }} />
+            <span style={{ position: 'absolute', inset: '-2px', borderRadius: '50%', background: '#16a34a', opacity: 0.2, filter: 'blur(4px)' }} />
+            <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#16a34a', display: 'inline-block', position: 'relative', zIndex: 1 }} />
           </span>
-          Not Available
+          Available
         </div>
       ),
     },
-    {
-      label: 'Currently at',
-      value: (
-        <a href="https://www.vibetechlabs.com/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#18181b', fontSize: '13px', fontWeight: 500, textDecoration: 'none' }}>
-          VibeTech Labs <ExternalLink size={13} color="#a1a1aa" />
-        </a>
-      ),
-    },
-    { label: 'Role', value: 'Intern' },
+    { label: 'Experience', value: 'Ex-Intern @ VibeTech Labs' },
+    { label: 'Role', value: 'AI / Full-Stack Engineer' },
     { label: 'Location', value: 'Ahmedabad, India' },
-    { label: 'Open to', value: 'Opportunities after internship' },
+    { label: 'Open to', value: 'Full-time & freelance opportunities' },
     {
       label: 'GitHub',
       value: (
@@ -110,13 +103,13 @@ const Availability = () => {
       }}
     >
       {/* Effect 07 — Scroll Parallax Background */}
-      <motion.div style={{ y: bgY, position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 20% 50%, rgba(239,68,68,0.04) 0%, transparent 60%)', pointerEvents: 'none' }} />
+      <motion.div style={{ y: bgY, position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 20% 50%, rgba(22,163,74,0.05) 0%, transparent 60%)', pointerEvents: 'none' }} />
 
       {/* Effect 08 — Noise Texture Overlay */}
       <div style={{ position: 'absolute', inset: 0, backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E")`, opacity: 0.4, pointerEvents: 'none', zIndex: 0, borderRadius: 'inherit' }} />
 
       {/* Effect 10 — Cursor Glow Trail */}
-      <motion.div style={{ position: 'absolute', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(239,68,68,0.06) 0%, transparent 70%)', pointerEvents: 'none', zIndex: 0, left: cursor.x - 200, top: cursor.y - 200, transition: 'left 0.15s ease, top 0.15s ease' }} />
+      <motion.div style={{ position: 'absolute', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(22,163,74,0.06) 0%, transparent 70%)', pointerEvents: 'none', zIndex: 0, left: cursor.x - 200, top: cursor.y - 200, transition: 'left 0.15s ease, top 0.15s ease' }} />
 
       <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: 'clamp(48px, 6vw, 128px)', alignItems: 'center' }}>
 
@@ -156,7 +149,7 @@ const Availability = () => {
                   variants={headingSpanVariants}
                   custom={0.12}
                 >
-                  unavailable
+                  available
                 </motion.span>
               </div>
               <div style={{ overflow: 'hidden' }}>
@@ -173,7 +166,7 @@ const Availability = () => {
 
           <p style={{ color: '#71717a', fontSize: '13px', fontFamily: 'monospace', lineHeight: 1.8, marginBottom: '40px', maxWidth: '360px' }}>
             <TextScramble duration={1.2} characterSet="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()" trigger={isInView}>
-              I'm currently interning at VibeTech Labs, fully focused on my role. Open to future opportunities after my internship ends.
+              My internship at VibeTech Labs has wrapped up. I'm actively looking for full-time or freelance roles in AI, data science, and full-stack engineering.
             </TextScramble>
           </p>
 
@@ -187,7 +180,7 @@ const Availability = () => {
               ref={btnRef}
               animate={{ x: btnPos.x, y: btnPos.y }}
               transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
-              href="https://www.vibetechlabs.com/"
+              href="https://github.com/Devam510"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -196,7 +189,7 @@ const Availability = () => {
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#18181b'; (e.currentTarget as HTMLElement).style.color = '#fff'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'transparent'; (e.currentTarget as HTMLElement).style.color = '#18181b'; }}
             >
-              View Internship <ExternalLink size={14} />
+              View My Work <ExternalLink size={14} />
             </motion.a>
           </div>
         </motion.div>
