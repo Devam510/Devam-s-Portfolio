@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Github, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -14,6 +14,14 @@ export interface ExpandCardItem {
 
 const ExpandOnHover = ({ items = [] }: { items?: ExpandCardItem[] }) => {
   const [expandedIndex, setExpandedIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handleCardClick = (idx: number, githubUrl?: string) => {
     if (expandedIndex === idx && githubUrl) {
@@ -38,8 +46,8 @@ const ExpandOnHover = ({ items = [] }: { items?: ExpandCardItem[] }) => {
             key={item.id}
             className="group relative cursor-pointer overflow-hidden rounded-3xl transition-all duration-500 ease-out"
             style={{ 
-              width: typeof window !== "undefined" && window.innerWidth >= 768 ? getWidth(idx) : "100%", 
-              height: typeof window !== "undefined" && window.innerWidth < 768 ? getMobileHeight(idx) : "100%" 
+              width: !isMobile ? getWidth(idx) : "100%", 
+              height: isMobile ? getMobileHeight(idx) : "100%" 
             }}
             onMouseEnter={() => setExpandedIndex(idx)}
             onClick={() => handleCardClick(idx, item.github)}
