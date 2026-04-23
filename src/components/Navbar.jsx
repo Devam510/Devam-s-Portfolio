@@ -161,7 +161,7 @@ const Navbar = () => {
                   style={{
                     fontFamily: 'monospace',
                     fontSize: '12px',
-                    color: 'rgba(255,255,255,0.55)',
+                    color: '#ffffff',
                     letterSpacing: '0.06em',
                     whiteSpace: 'nowrap',
                   }}
