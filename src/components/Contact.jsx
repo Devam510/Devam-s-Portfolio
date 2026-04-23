@@ -3,6 +3,65 @@ import { motion } from 'framer-motion';
 
 export default function Contact() {
   const [focusedField, setFocusedField] = useState(null);
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [status, setStatus] = useState('idle'); // idle, submitting, success, error
+  const [emailError, setEmailError] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.name === 'email') setEmailError('');
+  };
+
+  const validateEmail = (email) => {
+    // 1. Standard regex for proper format
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!re.test(email)) return "Please enter a valid email format.";
+    
+    // 2. Catch obvious fake domains (e.g. @test.c)
+    const domain = email.split('@')[1];
+    if (domain && domain.length < 4) return "Email domain looks suspicious.";
+    
+    return "";
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Check if email is proper before doing anything
+    const error = validateEmail(formData.email);
+    if (error) {
+      setEmailError(error);
+      return;
+    }
+
+    setStatus('submitting');
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          // NOTE TO USER: Get your free key at https://web3forms.com/
+          access_key: "YOUR_WEB3FORMS_ACCESS_KEY_HERE", 
+          from_name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        }),
+      });
+      const result = await response.json();
+      
+      if (result.success) {
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      setStatus('error');
+    }
+  };
 
   const inputStyle = (fieldName) => ({
     width: '100%',
@@ -120,70 +179,100 @@ export default function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: false }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-          style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}
         >
-          {/* Name + Email row — stack on mobile via auto-fit */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px' }}>
+          <form 
+            onSubmit={handleSubmit}
+            style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}
+          >
+            {/* Name + Email row — stack on mobile via auto-fit */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px' }}>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your name"
+                required
+                style={inputStyle('name')}
+                onFocus={() => setFocusedField('name')}
+                onBlur={() => setFocusedField(null)}
+              />
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Your email"
+                  required
+                  style={{ ...inputStyle('email'), borderColor: emailError ? '#ef4444' : (focusedField === 'email' ? '#18181b' : '#e4e4e7') }}
+                  onFocus={() => setFocusedField('email')}
+                  onBlur={() => setFocusedField(null)}
+                />
+                {emailError && <span style={{ color: '#ef4444', fontSize: '10px', marginTop: '4px', fontFamily: 'monospace' }}>{emailError}</span>}
+              </div>
+            </div>
+
+            {/* Subject field */}
             <input
               type="text"
-              placeholder="Your name"
-              style={inputStyle('name')}
-              onFocus={() => setFocusedField('name')}
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              placeholder="Subject"
+              required
+              style={inputStyle('subject')}
+              onFocus={() => setFocusedField('subject')}
               onBlur={() => setFocusedField(null)}
             />
-            <input
-              type="email"
-              placeholder="Your email"
-              style={inputStyle('email')}
-              onFocus={() => setFocusedField('email')}
+
+            {/* Message field */}
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Tell me about your project or opportunity..."
+              rows={5}
+              required
+              style={{ ...inputStyle('message'), resize: 'none' }}
+              onFocus={() => setFocusedField('message')}
               onBlur={() => setFocusedField(null)}
             />
-          </div>
 
-          {/* Subject field */}
-          <input
-            type="text"
-            placeholder="Subject"
-            style={inputStyle('subject')}
-            onFocus={() => setFocusedField('subject')}
-            onBlur={() => setFocusedField(null)}
-          />
-
-          {/* Message field */}
-          <textarea
-            placeholder="Tell me about your project or opportunity..."
-            rows={5}
-            style={{ ...inputStyle('message'), resize: 'none' }}
-            onFocus={() => setFocusedField('message')}
-            onBlur={() => setFocusedField(null)}
-          />
-
-          {/* CTA Button */}
-          <motion.button
-            whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.98 }}
-            style={{
-              width: '100%',
-              background: '#18181b',
-              color: '#fff',
-              padding: '14px 20px',
-              borderRadius: '10px',
-              border: 'none',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <span style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontSize: '13px',
-              fontWeight: 600,
-              letterSpacing: '-0.01em',
-            }}>
-              Start a conversation →
-            </span>
-          </motion.button>
+            {/* CTA Button */}
+            <motion.button
+              type="submit"
+              disabled={status === 'submitting'}
+              whileHover={{ scale: status === 'submitting' ? 1 : 1.01 }}
+              whileTap={{ scale: status === 'submitting' ? 1 : 0.98 }}
+              style={{
+                width: '100%',
+                background: status === 'success' ? '#22c55e' : status === 'error' ? '#ef4444' : '#18181b',
+                color: '#fff',
+                padding: '14px 20px',
+                borderRadius: '10px',
+                border: 'none',
+                cursor: status === 'submitting' ? 'wait' : 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                opacity: status === 'submitting' ? 0.7 : 1,
+                transition: 'background 0.3s ease',
+              }}
+            >
+              <span style={{
+                fontFamily: "'Space Grotesk', sans-serif",
+                fontSize: '13px',
+                fontWeight: 600,
+                letterSpacing: '-0.01em',
+              }}>
+                {status === 'submitting' ? 'Sending...' : 
+                 status === 'success' ? 'Message Sent ✓' : 
+                 status === 'error' ? 'Failed to send - Try again' : 
+                 'Start a conversation →'}
+              </span>
+            </motion.button>
+          </form>
 
           {/* Personal note */}
           <p style={{
