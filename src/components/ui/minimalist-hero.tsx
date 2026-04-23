@@ -96,7 +96,7 @@ export const MinimalistHero = ({
   // Card bottom = 18vh + 76vh = 94vh. 
   // Projects top = 100vh + skillsHeight.
   // Overlap occurs when scrollY + 94vh = 100vh + skillsHeight -> scrollY = 6vh + skillsHeight.
-  const exitStart = (vh * 0.06) + skillsHeight; 
+  const exitStart = skillsHeight - 80;
   const exitEnd = exitStart + (vh * 1.5);
 
   const imageX = useTransform(scrollY, [0, animEnd], ['0vw', '-30vw']); // Responsively centers in the left half
@@ -120,7 +120,8 @@ export const MinimalistHero = ({
     [1, 1]                // always solid
   );
 
-  const circleOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  // The glowing orb fades out smoothly during the first 500px of scrolling
+  const circleOpacity = useTransform(scrollY, [0, 500], [1, 0]);
 
   return (
     <div
@@ -424,16 +425,21 @@ export const MinimalistHero = ({
           </motion.h1>
         </motion.div>
 
-        {/* Col 2 — Circle + Photo */}
+        {/* Col 2 — Glowing Orb + Photo */}
         <div className="col-span-1 relative flex justify-center items-end h-full overflow-visible">
 
-          {/* Yellow circle */}
+          {/* Glowing Orb Background */}
           <motion.div
-            initial={{ scale: 0, opacity: 0 }}
+            initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="absolute z-0 h-[70vh] w-[70vh] rounded-full bg-yellow-400/90"
-            style={{ opacity: circleOpacity, translateY: '-15%' }}
+            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            className="absolute z-0 h-[65vh] w-[65vh] rounded-full bg-yellow-400/70"
+            style={{ 
+              opacity: circleOpacity, 
+              translateY: '-15%',
+              filter: 'blur(100px)',
+              pointerEvents: 'none'
+            }}
           />
 
           {/* ✅ 3D Flip Card Container */}
