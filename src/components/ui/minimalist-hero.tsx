@@ -82,9 +82,9 @@ export const MinimalistHero = ({
   // Since Skills track is now 250vh long:
   // Hero (100vh) + Skills (250vh) = 350vh total.
   // The image stays exactly locked (0px) natively without jitter until the end of Skills
-  // Hero is 100vh, Skills is roughly 700px tall. We wait until Projects starts to move it up.
-  const exitStart = vh * 1.0 + 700; 
-  const exitEnd = exitStart + vh + 100;
+  // Hero is 100vh, Skills is exactly 100vh. Projects starts at 200vh.
+  const exitStart = vh * 1.2; 
+  const exitEnd = vh * 2.0;
 
   const imageX = useTransform(scrollY, [0, animEnd], ['0vw', '-30vw']); // Responsively centers in the left half
   const imageScale = useTransform(scrollY, [0, animEnd], [1, 0.85]);

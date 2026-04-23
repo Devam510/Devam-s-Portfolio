@@ -20,7 +20,7 @@ const allSkills = columnsData.flatMap(col => col.items);
 
 function DesktopSkills() {
   return (
-    <section id="skills-desktop" style={{ background: '#fafafa', padding: '120px 80px', position: 'relative' }}>
+    <section id="skills-desktop" style={{ background: '#fafafa', padding: '120px 80px', position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
       {/* Top Left Label */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '80px' }}>
         <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#22c55e' }} />
