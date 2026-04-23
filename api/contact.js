@@ -1,5 +1,21 @@
 import nodemailer from 'nodemailer';
+import dns from 'dns';
+import { promisify } from 'util';
 
+const resolveMx = promisify(dns.resolveMx);
+
+// Helper function to verify if the email domain actually exists and can receive mail
+async function verifyEmailDomain(email) {
+  const domain = email.split('@')[1];
+  if (!domain) return false;
+  try {
+    const records = await resolveMx(domain);
+    return records && records.length > 0;
+  } catch (error) {
+    // If DNS resolution fails, the domain doesn't exist or has no mail servers
+    return false;
+  }
+}
 export default async function handler(req, res) {
   // Only allow POST requests
   if (req.method !== 'POST') {
@@ -11,6 +27,15 @@ export default async function handler(req, res) {
   // Validate fields
   if (!name || !email || !subject || !message) {
     return res.status(400).json({ success: false, message: 'All fields are required.' });
+  }
+
+  // Deep Validation: Check if the email domain actually exists (DNS MX records)
+  const isDomainValid = await verifyEmailDomain(email);
+  if (!isDomainValid) {
+    return res.status(400).json({ 
+      success: false, 
+      message: 'This email address does not appear to be valid. The domain does not exist or cannot receive mail.' 
+    });
   }
 
   try {
