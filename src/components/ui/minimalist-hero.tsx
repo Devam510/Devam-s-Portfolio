@@ -81,10 +81,10 @@ export const MinimalistHero = ({
 
   // Since Skills track is now 250vh long:
   // Hero (100vh) + Skills (250vh) = 350vh total.
-  // The image stays exactly locked (0px) natively without jitter until the 250vh mark.
-  // Then between 2.5 * vh and 3.5 * vh, it physically translates UP off the screen out of the way!
-  const exitStart = vh * 1.5; // Starts moving up as we approach the now-shorter bottom of Skills
-  const exitEnd = vh * 2.5;
+  // The image stays exactly locked (0px) natively without jitter until the 100vh mark.
+  // Then between 1.0 * vh and 2.0 * vh, it physically translates UP off the screen out of the way!
+  const exitStart = vh * 1.0; // Starts moving up as we scroll through Skills
+  const exitEnd = vh * 2.0;
 
   const imageX = useTransform(scrollY, [0, animEnd], ['0vw', '-30vw']); // Responsively centers in the left half
   const imageScale = useTransform(scrollY, [0, animEnd], [1, 0.85]);
@@ -428,7 +428,7 @@ export const MinimalistHero = ({
             style={{
               position: 'fixed',
               zIndex: 50,
-              top: '16vh',
+              top: '18vh',
               left: '50%',
               marginLeft: '-220px',
               height: '76vh',
@@ -494,7 +494,7 @@ export const MinimalistHero = ({
                 <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '42px', fontWeight: 800, marginBottom: '24px', lineHeight: 1.1 }}>
                   About Me
                 </h3>
-                <p style={{ fontFamily: 'monospace', fontSize: '14px', color: '#a1a1aa', lineHeight: 1.8 }}>
+                <p style={{ fontFamily: 'monospace', fontSize: '14px', color: '#dbd6d6ff', lineHeight: 1.8 }}>
                   I'm Devam Patel, an AI & Data Science professional passionate about turning complex data into real-world decisions.
                   <br /><br />
                   With experience in computer vision, autonomous systems, and predictive analytics, I build scalable solutions that bridge the gap between cutting-edge research and practical applications.

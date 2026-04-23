@@ -18,87 +18,51 @@ const columnsData = [
 
 const allSkills = columnsData.flatMap(col => col.items);
 
-const SkillItem = ({ skill, colIndex, scrollYProgress }) => {
-  const start = colIndex * 0.10;
-  const end = start + 0.10;
-
-  const opacity = useTransform(scrollYProgress, [start, end], [0, 1], { clamp: true });
-  const y = useTransform(scrollYProgress, [start, end], ['30px', '0px'], { clamp: true });
-
-  return (
-    <motion.div style={{
-      opacity,
-      y,
-      fontSize: 'clamp(22px, 3.5vw, 52px)',
-      fontWeight: 900,
-      letterSpacing: '-0.02em',
-      color: '#000000',
-      textTransform: 'uppercase',
-      fontFamily: 'monospace'
-    }}>
-      {skill}
-    </motion.div>
-  );
-};
-
 function DesktopSkills() {
-  const sectionRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end end']
-  });
-
   return (
-    <div id="skills" ref={sectionRef} style={{ height: '150vh', position: 'relative' }}>
-      <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden', background: '#fafafa', willChange: 'transform' }}>
+    <section id="skills-desktop" style={{ background: '#fafafa', padding: '120px 80px', position: 'relative' }}>
+      {/* Top Left Label */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '80px' }}>
+        <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#22c55e' }} />
+        <span style={{ fontSize: '22px', letterSpacing: '0.2em', fontWeight: 600, fontFamily: "'JetBrains Mono', monospace", color: '#18181b', textTransform: 'uppercase' }}>
+          Skills
+        </span>
+      </div>
 
-        {/* Top Left Label */}
-        <div style={{
-          position: 'absolute', top: '48px', left: '80px',
-          display: 'flex', alignItems: 'center', gap: '8px'
-        }}>
-          <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#22c55e' }} />
-          <span style={{
-            fontSize: '22px', letterSpacing: '0.2em', fontWeight: 600,
-            fontFamily: "'JetBrains Mono', monospace", color: '#18181b', textTransform: 'uppercase'
-          }}>
-            Skills
-          </span>
-        </div>
-
-        {/* 3 Columns Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3" style={{
-          width: '100%',
-          height: '100%',
-          padding: '120px 80px',
-          paddingLeft: 'max(80px, 45vw)',
-          alignContent: 'start',
-          gap: '24px'
-        }}>
-          {columnsData.map((col, colIndex) => (
-            <div key={col.title} style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
-              {/* Column Header */}
-              <div style={{
-                fontSize: '11px', letterSpacing: '0.2em',
-                color: '#a1a1aa', textTransform: 'uppercase'
-              }}>
-                {col.title}
-              </div>
-
-              {/* Skill Items */}
+      {/* 3 Columns Layout */}
+      <div className="grid grid-cols-3" style={{ width: '100%', gap: '48px', paddingLeft: 'max(80px, 40vw)' }}>
+        {columnsData.map((col) => (
+          <div key={col.title} style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
+            <div style={{ fontSize: '11px', letterSpacing: '0.2em', color: '#a1a1aa', textTransform: 'uppercase' }}>
+              {col.title}
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
               {col.items.map((skill) => (
-                <SkillItem
+                <motion.div
                   key={skill}
-                  skill={skill}
-                  colIndex={colIndex}
-                  scrollYProgress={scrollYProgress}
-                />
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, margin: '-10%' }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  style={{
+                    fontSize: 'clamp(22px, 3.5vw, 42px)',
+                    fontWeight: 900,
+                    letterSpacing: '-0.02em',
+                    color: '#18181b',
+                    textTransform: 'uppercase',
+                    fontFamily: 'monospace',
+                    borderBottom: '1px solid #e4e4e7',
+                    paddingBottom: '16px'
+                  }}
+                >
+                  {skill}
+                </motion.div>
               ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 }
 
